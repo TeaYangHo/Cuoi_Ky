@@ -1,0 +1,73 @@
+package cuoi_ky_nhom_26;
+
+import java.util.Iterator;
+
+public class LinkedListQueue<E> implements QueueInterface<E> {
+    class Node {
+        E element;
+        Node next;
+        Node (E element) {
+            this.element = element;
+        }
+    }
+    Node head, tail;
+    LinkedListQueue() {
+        head = tail = null;
+    }
+
+    @Override
+    public void enqueue(E element) {
+        Node newNode = new Node (element);
+        if (isEmpty()) {
+            head = tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+        }
+    }
+
+    @Override
+    public E dequeue() {
+        if (isEmpty()) {
+            return null;
+        }
+        E element = head.element;
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            head = head.next;
+        }
+
+        return element;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return (head == null && tail == null);
+    }
+
+    @Override
+    public int size() {
+        return 0;
+    }
+
+    public void show() {
+        if (isEmpty()) {
+            System.out.println("Hàng đã trống");
+        }
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.element + " <-- ");
+            temp = temp.next;
+        }
+        System.out.println();
+
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+}
