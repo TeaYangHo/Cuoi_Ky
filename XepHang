@@ -1,0 +1,20 @@
+package cuoi_ky_nhom_26;
+
+public class XepHang {
+
+    public static void main(String[] args) {
+        LinkedListQueue<Integer> list = new LinkedListQueue<Integer>();
+        System.out.println("Hàng đầu tiên: ");
+        for (int i = 1; i <= 10; i++) {
+            list.enqueue(i);
+        }
+        list.show();
+        System.out.println();
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Số " + i + " vào: " + list.dequeue());
+            list.show();
+        }
+    }
+
+}
